@@ -20,6 +20,7 @@ Contributors:
  * The [ClojureDocs](https://clojuredocs.org) contributors
 
 So far there are examples for the following functions:
+ * apply
  * conj
  * drop-while
  * interleave

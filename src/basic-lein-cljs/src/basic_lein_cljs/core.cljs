@@ -44,6 +44,14 @@
   {:with-callback callback}
   (get-lib-version "dynadoc" callback))
 
+(defexamples cljs.core/apply
+  ["Apply a function to a vector of arguments"
+   (apply + [40 2])]
+  ["Apply a function to a list of arguments"
+   (apply - '(50 5 3))]
+  ["Apply a function to multiple collections of different types"
+   (map (partial apply max) [[1 2 3 4] '(-1 0 1 2)])])
+
 (defexamples cljs.core/conj
   ["Add a name to a vector"
    (conj ["Alice" "Bob"] "Charlie")]
