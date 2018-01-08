@@ -20,9 +20,9 @@ Contributors:
  * The [ClojureDocs](https://clojuredocs.org) contributors
 
 So far there are examples for the following functions:
- * apply
- * conj
- * drop-while
- * interleave
- * sort-by
- * take-while
+ * [apply](http://sakisk.me/interactclj/cljs/cljs.core/apply.html)
+ * [conj](http://sakisk.me/interactclj/cljs/cljs.core/conj.html)
+ * [drop-while](http://sakisk.me/interactclj/cljs/cljs.core/drop-while.html)
+ * [interleave](http://sakisk.me/interactclj/cljs/cljs.core/interleave.html)
+ * [sort-by](http://sakisk.me/interactclj/cljs/cljs.core/sort-by.html)
+ * [take-while](http://sakisk.me/interactclj/cljs/cljs.core/take-while.html)
