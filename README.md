@@ -8,7 +8,7 @@ examples for standard and non-standard Clojure(Script) functions is very easy.
 The goal of this project is to show creative ways of using the standard
 Clojure(Script) library, through interactive examples that can be executed and
 modified using only a Web browser. Arguably all Clojure(Script) users that have
-passed the begginer's stage can already do that (and probably much more) using
+passed the beginner's stage can already do that (and probably much more) using
 the REPL. But I still find it a good idea, especially for newcomers and people
 who didn't have the chance so far to use Clojure(Script) extensively or
 professionally.
