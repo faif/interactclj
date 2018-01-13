@@ -23,6 +23,8 @@ So far there are examples for the following functions:
  * [apply](http://sakisk.me/interactclj/cljs/cljs.core/apply.html)
  * [conj](http://sakisk.me/interactclj/cljs/cljs.core/conj.html)
  * [drop-while](http://sakisk.me/interactclj/cljs/cljs.core/drop-while.html)
+ * [filter](http://sakisk.me/interactclj/cljs/cljs.core/filter.html)
  * [interleave](http://sakisk.me/interactclj/cljs/cljs.core/interleave.html)
+ * [merge-with](http://sakisk.me/interactclj/cljs/cljs.core/merge-with.html)
  * [sort-by](http://sakisk.me/interactclj/cljs/cljs.core/sort-by.html)
  * [take-while](http://sakisk.me/interactclj/cljs/cljs.core/take-while.html)

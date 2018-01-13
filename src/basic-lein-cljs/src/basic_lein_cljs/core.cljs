@@ -28,21 +28,22 @@
   callback. If it can't find it, the callback receives an error object."
   [lib-name callback]
   (.send XhrIo
-    (str "https://clojars.org/api/artifacts/" lib-name)
-    (fn [e]
-      (callback
-        (or (when (.isSuccess (.-target e))
-              (-> e
-                  .-target
-                  .getResponseText
-                  js/JSON.parse
-                  (gobj/get "latest_release")))
-            (js/Error. (str "Can't find version for: " lib-name)))))
-    "GET"))
+         (str "https://clojars.org/api/artifacts/" lib-name)
+         (fn [e]
+           (callback
+            (or (when (.isSuccess (.-target e))
+                  (-> e
+                      .-target
+                      .getResponseText
+                      js/JSON.parse
+                      (gobj/get "latest_release")))
+                (js/Error. (str "Can't find version for: " lib-name)))))
+         "GET"))
 
 (defexample get-lib-version
   {:with-callback callback}
   (get-lib-version "dynadoc" callback))
+
 
 (defexamples cljs.core/apply
   ["Apply a function to a vector of arguments"
@@ -51,6 +52,7 @@
    (apply - '(50 5 3))]
   ["Apply a function to multiple collections of different types"
    (map (partial apply max) [[1 2 3 4] '(-1 0 1 2)])])
+
 
 (defexamples cljs.core/conj
   ["Add a name to a vector"
@@ -64,6 +66,10 @@
   ["Remove all non-vowel characters up to the first vowel"]
   (drop-while (complement #{\a\e\i\o\u}) "clojure"))
 
+(defexample cljs.core/filter
+  ["Exclude languages with single character names"]
+  (filter #(> (count %) 1) ["Java" "Lisp" "Fortran" "C" "D" "C++"]))
+
 (defexamples cljs.core/interleave
   ["Combine two seqs of unequal length"
    (interleave (repeat "a") [1 2 3])]
@@ -72,13 +78,21 @@
           (interleave [:fruit :color :temp]
                       ["grape" "red" "hot"]))])
 
+(defexample cljs.core/merge-with
+  ["Combine all map values that have the same key"]
+  (merge-with
+   concat
+   {:rubble ["Barney"], :flintstone ["Fred"]}
+   {:rubble ["Betty"], :flintstone ["Wilma"]}
+   {:rubble ["Bam-Bam"], :flintstone ["Pebbles"]}))
+
 (defexamples cljs.core/sort-by
   ["Sort using a specific keyword"
-  (sort-by :year < [{:name "Lisp" :year 1959}
-                    {:name "Fortran" :year 1957}
-                    {:name "Smalltalk" :year 1972}])]
+   (sort-by :year < [{:name "Lisp" :year 1959}
+                     {:name "Fortran" :year 1957}
+                     {:name "Smalltalk" :year 1972}])]
   ["Sort numbers lexicographically"
-   (sort-by #(.toString %) [5 18 83 23 40])])
+   (sort-by str [5 18 83 23 40])])
 
 (defexample cljs.core/take-while
   ["Get all the negative numbers up to the first non-negative"]
