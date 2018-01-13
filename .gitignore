@@ -11,5 +11,7 @@ pom.xml.asc
 .lein-plugins/
 .lein-failures
 .nrepl-port
-*/resources/
+/resources/
 dynadoc-export.zip
+src/basic-lein-cljs/resources/
+src/basic-lein-cljs/target
