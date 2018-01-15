@@ -86,6 +86,29 @@
    {:rubble ["Betty"], :flintstone ["Wilma"]}
    {:rubble ["Bam-Bam"], :flintstone ["Pebbles"]}))
 
+(defexamples cljs.core/swap!
+  ["Atomically swap the value in a vector-atom"
+   (swap! (atom []) conj :scheme :clojure)]
+  ["Atomically swap a value in a map-atom"
+   (let [map-atom (atom {:a "A" :b [1 2 3] :c 7})]
+     (swap! map-atom assoc :c 5))]
+  ["Atomically apply a function to a value in a map-atom"
+   (let [map-atom (atom {:a "A" :b [1 2 3] :c 7})]
+     (swap! map-atom update :c inc))]
+  ["Atomically map a function over a sequence in a map-atom"
+   (let [map-atom (atom {:a "A" :b [1 2 3] :c 7})]
+     (swap! map-atom update :b (partial mapv dec)))]
+  ["Atomically update multiple key-values in one swap"
+   (let [map-atom (atom {:a "A" :b [1 2 3] :c 7})
+         update-multiple-kvs (fn [m k1 f1 k2 f2 k3 f3]
+                               (let [m1 (assoc  m k1 (f1 (k1 m)))
+                                     m2 (assoc m1 k2 (f2 (k2 m1)))
+                                     m3 (assoc m2 k3 (f3 (k3 m2)))]
+                                 m3))
+         str-double          (fn [str2dbl] (str str2dbl str2dbl))
+         inc-vec             (fn [v] (mapv inc v))]
+     (swap! map-atom update-multiple-kvs :a str-double :b inc-vec :c dec))])
+
 (defexamples cljs.core/sort-by
   ["Sort using a specific keyword"
    (sort-by :year < [{:name "Lisp" :year 1959}
