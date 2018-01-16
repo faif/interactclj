@@ -115,7 +115,13 @@
                      {:name "Fortran" :year 1957}
                      {:name "Smalltalk" :year 1972}])]
   ["Sort numbers lexicographically"
-   (sort-by str [5 18 83 23 40])])
+   (sort-by str [5 18 83 23 40])]
+  ["Sort with a function"
+   (sort-by count ["oh" "this" "is" "super" "awesome"])]
+  ["Sort using multiple criteria"
+   (sort-by (juxt count str) ["oh" "this" "is" "super" "awesome"])]
+  ["Sort using multiple criteria"
+   (sort-by (juxt :a :b) [{:a 1 :b 3} {:a 1 :b 2} {:a 2 :b 1}])])
 
 (defexample cljs.core/take-while
   ["Get all the negative numbers up to the first non-negative"]
