@@ -88,26 +88,25 @@
 
 (defexamples cljs.core/swap!
   ["Atomically swap the value in a vector-atom"
-   (swap! (atom []) conj :scheme :clojure)]
+   (swap! (atom [:lisp]) conj :scheme :clojure)]
   ["Atomically swap a value in a map-atom"
-   (let [map-atom (atom {:a "A"})]
+   (let [map-atom (atom {:a "A" :b [4 2]})]
      (swap! map-atom assoc :a "B"))]
   ["Atomically map a function over a seq-value in a map-atom"
-   (let [map-atom (atom {:b [5 3]})]
+   (let [map-atom (atom {:a "A" :b [5 3]})]
      (swap! map-atom update :b (partial mapv dec)))]
   ["Atomically apply a function to a value in a map-atom"
-   (let [map-atom (atom {:c 41})]
+   (let [map-atom (atom {:a "A" :c 41})]
      (swap! map-atom update :c inc))]
   ["Atomically update multiple key-values in one swap"
-   (let [map-atom (atom {:a "A" :b [3 1] :c 43})
-         update-multiple-kvs (fn [m k1 f1 k2 f2 k3 f3]
+   (let [map-atom            (atom {:a "A" :b [3 1] :c 43})
+         update-multiple-kvs (fn [m k1 f1 k2 f2]
                                (let [m1 (assoc  m k1 (f1 (k1 m)))
-                                     m2 (assoc m1 k2 (f2 (k2 m1)))
-                                     m3 (assoc m2 k3 (f3 (k3 m2)))]
-                                 m3))
+                                     m2 (assoc m1 k2 (f2 (k2 m1)))]
+                                 m2))
          add-bcd             (fn [a-string] (str a-string "BCD"))
          inc-vec             (fn [v] (mapv inc v))]
-     (swap! map-atom update-multiple-kvs :a add-bcd :b inc-vec :c dec))])
+     (swap! map-atom update-multiple-kvs :a add-bcd :b inc-vec))])
 
 (defexamples cljs.core/sort-by
   ["Sort using a specific keyword"
