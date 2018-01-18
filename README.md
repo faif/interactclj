@@ -27,5 +27,5 @@ So far there are examples for the following functions:
  * [interleave](http://sakisk.me/interactclj/cljs/cljs.core/interleave.html)
  * [merge-with](http://sakisk.me/interactclj/cljs/cljs.core/merge-with.html)
  * [sort-by](http://sakisk.me/interactclj/cljs/cljs.core/sort-by.html)
+ * [swap!](http://sakisk.me/interactclj/cljs/cljs.core/swap'e'.html)
  * [take-while](http://sakisk.me/interactclj/cljs/cljs.core/take-while.html)
-
