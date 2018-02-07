@@ -86,6 +86,12 @@
    {:rubble ["Betty"], :flintstone ["Wilma"]}
    {:rubble ["Bam-Bam"], :flintstone ["Pebbles"]}))
 
+(defexamples cljs.core/partition
+  ["Break a collection into chunks of two"
+   (partition 2 [:n1 :n2 :n3 :n4])]
+   ["Break a collection into overlapping pairs"
+    (partition 2 1 [:n1 :n2 :n3 :n4])])
+
 (defexamples cljs.core/swap!
   ["Atomically swap the value in a vector-atom"
    (swap! (atom [:lisp]) conj :scheme :clojure)]
