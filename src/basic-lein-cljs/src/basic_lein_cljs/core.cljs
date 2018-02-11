@@ -53,6 +53,10 @@
   ["Apply a function to multiple collections of different types"
    (map (partial apply max) [[1 2 3 4] '(-1 0 1 2)])])
 
+(defexample cljs.core/comp
+  ["Combine (compose) filter and count to get the number of vowels"]
+  (def count-if (comp count filter))
+  (count-if #{\a\e\i\o\u} "clojure"))
 
 (defexamples cljs.core/conj
   ["Add a name to a vector"
